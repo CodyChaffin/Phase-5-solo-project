@@ -13,4 +13,26 @@ class RecipesController < ApplicationController
             render json: {error: "Recipe not found" }, status: :not_found
         end
     end
+
+    def create
+        
+        recipe = Recipe.create(new_recipe)
+        
+        if recipe.valid? 
+            render json: recipe, status: :created
+            
+        else
+            render json: {errors: "Not able to create"}, status: :unprocessable_entity
+        end
+       
+    
+    end
+
+    private
+     
+    
+
+    def new_recipe
+        params.permit(:name, :image_url, :origin, :recipe, :directions =>[])
+    end
 end

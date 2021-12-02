@@ -6,8 +6,6 @@ function RecipeContainer({recipes}){
     
     return(
         <>
-
-        <h1>RecipeContainer</h1>
         {recipes.map(rec=> (<RecipeCard key={rec.id} rec={rec}/>))}
         </>
     )

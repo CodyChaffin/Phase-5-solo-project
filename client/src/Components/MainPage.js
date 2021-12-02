@@ -16,7 +16,7 @@ function MainPage(){
         setCatagory(food)
         })
     },[])
-   
+  
 
     function filteredFood(origin){
         const filter= catagory.filter(rec=> rec.origin === origin)

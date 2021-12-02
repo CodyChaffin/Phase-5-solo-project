@@ -5,6 +5,8 @@ function RecipeDetails({rec}){
     
     const directions = rec.directions
     const ingredients = rec.ingredients
+
+
     
     return(
         <div>
@@ -13,6 +15,7 @@ function RecipeDetails({rec}){
                 {directions.map(dir=><li>{dir}</li>)}
                 <h2>Ingredients</h2>
                 {ingredients.map(ing=><li>{ing.amount} - {ing.name}</li>)}
+                
             </ul>
         </div>
     )
