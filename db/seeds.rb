@@ -8,8 +8,8 @@
 
 puts "seeding data"
 puts "seeding users"
-user1= User.create(name: "Cody", email: "cmchaff14@gmail.com", password_digest: "password")
-user2= User.create(name: "Deanna", email: "cmchaff14@yahoo.com", password_digest: "password")
+user1= User.create(name: "Cody", email: "cmchaff14@gmail.com", password: "password")
+user2= User.create(name: "Deanna", email: "cmchaff14@yahoo.com", password: "password")
 puts "finished users now recipes"
 recipe1= Recipe.create(name: "The Best Kale Salad", image_url: "https://www.acouplecooks.com/wp-content/uploads/2018/11/Kale-Salad-002.jpg", directions: ["Destem and chop the kale.", "Whip up the garlicky Parmesan dressing: start by using your knife blade to form the garlic into a paste. You’ll mince the garlic, then add salt and scrape the blade back and forth over the garlic until it forms into a paste.", "Mix the garlic paste with lemon, olive oil, Parmesan cheese and red pepper flakes.", "Top with lemon zest."])
 recipe2= Recipe.create(name: "BBQ Chicken Done Right", image_url: "https://www.foodiecrush.com/wp-content/uploads/2019/07/BBQ-Chicken-Breasts-foodiecrush.com-012.jpg", directions: ["Pick your favorite BBQ sauce or make your own", "Reserve 1 cup of your BBQ sauce for later. Add chicken to remaining barbecue sauce. Cover and refrigerate for at least 1 hour and up to overnight.", "Make chicken: Preheat oven to 425° and line a large baking sheet with foil. Place onions on baking sheet, drizzle with oil, and toss to coat. Place chicken on top of onions, skin side up, and bake until golden and internal temperature reaches 165°, 30 to 40 minutes.", "Turn oven to broil. Brush chicken with reserved barbecue sauce on both sides and broil until skin is crispy and sauce is thickened, 5 minutes."])
