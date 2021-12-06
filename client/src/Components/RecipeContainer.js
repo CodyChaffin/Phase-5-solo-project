@@ -1,13 +1,21 @@
-
+import { Grid } from "@material-ui/core";
+import { green } from "@material-ui/core/colors";
+import { useState } from "react";
 import RecipeCard from "./RecipeCard";
 
 
-function RecipeContainer({recipes}){
-    
+function RecipeContainer({recipes, currentUser}){
+    const [favorites, setFavorites]= useState(false)
     return(
-        <>
-        {recipes.map(rec=> (<RecipeCard key={rec.id} rec={rec}/>))}
-        </>
+        
+            <div className='container' >
+                <Grid container spacing={10}>
+                    
+                        {recipes.map(rec=> <Grid item lg={6}><RecipeCard key={rec.id} className='card' rec={rec}  currentUser={currentUser} setFavorites={setFavorites} favorites={favorites} /></Grid>)}
+                    
+                </Grid>
+            </div>
+
     )
 }
 

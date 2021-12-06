@@ -1,0 +1,15 @@
+.App{
+    background-color: #FFFDD0;
+    
+}
+
+.Drawer{
+    width: 25%;
+}
+
+.card{
+    background-image: url("https://i.pinimg.com/originals/a0/29/62/a0296222f9635d2345c4dc00c7bebe99.jpg");
+}
+ .containerP{
+     display: flex;
+ }

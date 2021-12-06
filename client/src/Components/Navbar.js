@@ -1,20 +1,21 @@
 
-
+import { useState } from "react";
 import { useNavigate } from "react-router"
+import MenuBar from "./MenuBar";
 
 
 function Navbar({filteredFood}){
-    let navigate = useNavigate();
+    const [menuOpen, setMenuOpen] = useState(false)
     
-  
         
     return(
         <>
-        <button onClick={()=>navigate('/home/user-profile')}>My Profile</button>
+        
         <button onClick={(e)=>filteredFood(e.target.value)} value='All'>All</button>
         <button onClick={(e)=>filteredFood(e.target.value)} value='Asian'>Asian</button>
         <button onClick={(e)=>filteredFood(e.target.value)} value='Greek'>Greek</button>
-        <button onClick={(e)=>filteredFood(e.target.value)} value='American'>American</button>
+        <button onClick={(e)=>filteredFood(e.target.value)} value='American'>American</button>    
+        {menuOpen ? <MenuBar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>:<img src="https://cdn2.iconfinder.com/data/icons/user-interface-169/32/menu-128.png" onClick={()=>setMenuOpen(true)}  style={{float:"right", height: '40px'}}></img>}
         </>
     )
 }

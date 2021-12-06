@@ -3,17 +3,20 @@ import Navbar from "./Navbar"
 
 import RecipeContainer from "./RecipeContainer"
 
-function MainPage(){
+function MainPage({currentUser}){
 
     const [recipes, setRecipes] = useState([])
     
     const [catagory, setCatagory] = useState([])
+
+    
     
     useEffect(() => {
         fetch("/recipes")
         .then(resp => resp.json())
         .then(food=> {setRecipes(food)
         setCatagory(food)
+        
         })
     },[])
   
@@ -37,7 +40,7 @@ function MainPage(){
         filteredFood={filteredFood}
         recipes={recipes} 
         />
-        <RecipeContainer recipes={recipes} />
+        <RecipeContainer recipes={recipes} currentUser={currentUser}  />
         </>
     )
 }

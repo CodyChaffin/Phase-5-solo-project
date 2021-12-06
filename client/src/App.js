@@ -29,15 +29,15 @@ function App() {
 
   if(!authChecked) { return <div></div>}
   return (
-    <div className="App">
-      
+    <div className="App" style={{backgroundColor:"#FFFDD0"}}>
+      <h1 style={{textAlign:"center"}}>Digital CookBook</h1>
       <Routes>
       
       <Route path="/" element={<LoginSignup setCurrentUser={setCurrentUser}/>} />
         <Route path="/home" element={<MainPage
             setCurrentUser={setCurrentUser}
             currentUser={currentUser} />}/>
-        <Route path="/home/user-profile" element={ <ProfilePage  currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+        <Route path="/home/user-profile" element={ <ProfilePage  currentUser={currentUser} setCurrentUser={setCurrentUser} setAuthChecked={setAuthChecked}/>} />
         
       </Routes>
     </div>

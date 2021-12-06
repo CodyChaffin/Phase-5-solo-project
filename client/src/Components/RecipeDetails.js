@@ -1,7 +1,7 @@
 
 
 
-function RecipeDetails({rec}){
+function RecipeDetails({rec, details, setDetails}){
     
     const directions = rec.directions
     const ingredients = rec.ingredients
@@ -12,10 +12,10 @@ function RecipeDetails({rec}){
         <div>
             <ul>
                 <h2>Instructions</h2>
-                {directions.map(dir=><li>{dir}</li>)}
+                {directions.map(dir=><li key={dir}>{dir}</li>)}
                 <h2>Ingredients</h2>
-                {ingredients.map(ing=><li>{ing.amount} - {ing.name}</li>)}
-                
+                {ingredients.map(ing=><li key={ing.id}>{ing.amount} - {ing.name}</li>)}
+                <button onClick={()=> setDetails(!details)}>Details</button>
             </ul>
         </div>
     )

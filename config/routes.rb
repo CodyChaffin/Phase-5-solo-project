@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get "/me", to: "users#show"
   post "/signup", to: "users#create"
-
+  delete "/favorite_recipes", to: "favorite_recipes#destroy"
   get '/:id', to: 'recipes#show'
   
   # Routing logic: fallback requests for React Router.

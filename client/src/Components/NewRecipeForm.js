@@ -9,18 +9,21 @@ function NewRecipeForm({isVisible, setIsVisible, setRecipes, recipes}){
     const [recipeName, setRecipeName] = useState('')
     const [imgUrl, setImgUrl]= useState('')
     const [origin, setOrigin]= useState('')
+    const [amount, setAmount]= useState('')
+    const [calories, setCalories]= useState(null)
+    const [newId, setNewId] = useState()
+    const calNum = Number(calories)
     
+    
+    
+
     function addDirection(e){
         e.preventDefault()
         setDirectionsArray([...directionsArray, direction])
         setDirection('')
     }
 
-    function addIngredient(e){
-        e.preventDefault()
-        setIngredientsArray([...ingredientsArray, ingredient])
-        setIngredient('')
-    }
+    
 
     
     function showForm(e){
@@ -32,7 +35,9 @@ function NewRecipeForm({isVisible, setIsVisible, setRecipes, recipes}){
 
     function handleSubmit(e){
         e.preventDefault()
-
+        setOrigin('')
+        setRecipeName('')
+        setImgUrl('')
         const newRecipe = {
             directions: directionsArray,
             image_url: imgUrl,
@@ -46,8 +51,41 @@ function NewRecipeForm({isVisible, setIsVisible, setRecipes, recipes}){
         }
         fetch('/recipes', recipeOptions)
         .then(res=>res.json())
-        .then(newRec=> setRecipes(...recipes, newRec))
+        .then(newRec=>{ setRecipes(...recipes, newRec) 
+        setNewId(newRec.id)
+        })
     }
+    
+    
+    
+    function addIngredient(e){
+        e.preventDefault()
+        
+        setIngredient('')
+        setAmount('')
+        setCalories(null)
+        
+        const ingredObj = {
+        name: ingredient,
+        amount: amount,
+        calories: calNum,
+        recipe_id: newId
+    }
+    setIngredientsArray([...ingredientsArray, ingredObj])
+        const ingredOpt={
+            headers :{'Content-Type': 'application/json'},
+            method : "POST",
+            body : JSON.stringify(ingredObj)
+        }
+        
+
+        fetch('/ingredients',ingredOpt)
+        .then(resp=>resp.json())
+        .then(newIng=>console.log(newIng))
+        
+        
+    }
+    
     
     return(
         <div>
@@ -63,10 +101,13 @@ function NewRecipeForm({isVisible, setIsVisible, setRecipes, recipes}){
                 <button type='submit' onClick={(e)=>handleSubmit(e)}>Add Recipe</button>   
             </form> 
             <form id='ingredients'>
-                    <input type='text' value={ingredient} placeholder='ingredients' onChange={e=>setIngredient(e.target.value)}></input>
+                    <input type='text' value={ingredient} placeholder='ingredient name' onChange={e=>setIngredient(e.target.value)}></input>
+                    <input type='text' value={amount} placeholder='amount?' onChange={(e)=>setAmount(e.target.value)}></input>
+                    <input type='number' value={calories} placeholder='how many calories?' onChange={(e)=>setCalories(e.target.value)}></input>
                     <button type='submit' onClick={(e)=>addIngredient(e)}>Add New Ingredient</button>
                 </form>
-            <button onClick={(e)=> showForm(e)}>Hide New Recipe Form</button> 
+                
+            <button onClick={(e)=> showForm(e)}>Hide Recipe Form</button> 
         </div>
     )
 }
