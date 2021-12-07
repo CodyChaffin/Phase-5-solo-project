@@ -25,15 +25,17 @@ function ProfilePage({currentUser, setCurrentUser}){
               res.json().then((user) => {
                 setCurrentUser(user)
                 setFavorites(true)
-                
+                setRecipes(user.recipes)
                 
               })
-            } else {
+            } 
             //   setAuthChecked(true)
-            }
+            
           })
     }, [handleRemove])
-      
+      // useEffect(()=>{
+
+      // },[recipes])
    
     
     return(
