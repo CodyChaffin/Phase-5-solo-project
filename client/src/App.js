@@ -29,8 +29,8 @@ function App() {
 
   if(!authChecked) { return <div></div>}
   return (
-    <div className="App" style={{backgroundColor:"#FFFDD0"}}>
-      <h1 style={{textAlign:"center"}}>Digital CookBook</h1>
+    <div className="App" >
+      <h1 style={{textAlign:"center"}}>Recipe Island</h1>
       <Routes>
       
       <Route path="/" element={<LoginSignup setCurrentUser={setCurrentUser}/>} />

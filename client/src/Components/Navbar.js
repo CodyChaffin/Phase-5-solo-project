@@ -9,14 +9,17 @@ function Navbar({filteredFood}){
     
         
     return(
-        <>
-        
+        <div className='navBar'>
+        {/* style={{display:"flex", justifyContent: "space-evenly", backgroundColor:'orange'}} */}
         <button onClick={(e)=>filteredFood(e.target.value)} value='All'>All</button>
         <button onClick={(e)=>filteredFood(e.target.value)} value='Asian'>Asian</button>
         <button onClick={(e)=>filteredFood(e.target.value)} value='Greek'>Greek</button>
-        <button onClick={(e)=>filteredFood(e.target.value)} value='American'>American</button>    
+        <button onClick={(e)=>filteredFood(e.target.value)} value='American'>American</button>
+        <button onClick={(e)=>filteredFood(e.target.value)} value='Korean'>Korean</button>
+        <button onClick={(e)=>filteredFood(e.target.value)} value='Japanese'>Japanese</button>
+        <button onClick={(e)=>filteredFood(e.target.value)} value='Mexican'>Mexican</button>    
         {menuOpen ? <MenuBar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>:<img src="https://cdn2.iconfinder.com/data/icons/user-interface-169/32/menu-128.png" onClick={()=>setMenuOpen(true)}  style={{float:"right", height: '40px'}}></img>}
-        </>
+        </div>
     )
 }
 

@@ -1,3 +1,10 @@
+
+body {
+    padding: 0%;
+    background-color: #FFFDD0
+}
+
+
 .App{
     background-color: #FFFDD0;
     
@@ -10,6 +17,21 @@
 .card{
     background-image: url("https://i.pinimg.com/originals/a0/29/62/a0296222f9635d2345c4dc00c7bebe99.jpg");
 }
- .containerP{
+
+.containerP{
      display: flex;
  }
+
+.navBar{
+  margin-left: 25px;
+  list-style: none;
+  padding: 12px;
+  justify-content: space-evenly;
+  
+}
+.navBar button{
+    text-align: center;
+    list-style: none;
+    margin-right: 200px;
+    
+}

@@ -32,7 +32,7 @@ function ProfilePage({currentUser, setCurrentUser}){
             //   setAuthChecked(true)
             }
           })
-    }, [recipes])
+    }, [handleRemove])
       
    
     
