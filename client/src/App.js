@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import LoginSignup from "./Components/LoginSignup";
 import MainPage from "./Components/MainPage";
 import ProfilePage from "./Components/ProfilePage"
+import logo from "../src/Components/logo/RIlogo-removebg-preview.png"
+
 
 
 function App() {
@@ -30,7 +32,12 @@ function App() {
   if(!authChecked) { return <div></div>}
   return (
     <div className="App" >
-      <h1 style={{textAlign:"center"}}>Recipe Island</h1>
+
+      <div className='headerfiller'>
+        <h1 className='header'>Recipe Island</h1>
+        
+        <img className="island" src={logo} alt='island'/>
+      </div>
       <Routes>
       
       <Route path="/" element={<LoginSignup setCurrentUser={setCurrentUser}/>} />

@@ -31,24 +31,7 @@ function NewRecipeForm({isVisible, setIsVisible, setRecipes, recipes}){
         setIsVisible(!isVisible)
     }
 
-
- function addIngredient(e){
-        e.preventDefault()
-        
-        setIngredient('')
-        setAmount('')
-        setCalories(0)
-        
-        const ingredObj = {
-        name: ingredient,
-        amount: amount,
-        calories: calNum,
-        recipe_id: newId
-        }
-        setIngredientsArray([...ingredientsArray, ingredObj])        
-    }
-
-    function handleSubmit(e){
+function handleSubmit(e){
         e.preventDefault()
         setOrigin('')
         setRecipeName('')
@@ -70,26 +53,53 @@ function NewRecipeForm({isVisible, setIsVisible, setRecipes, recipes}){
         setNewId(newRec.id)
         })
     }
+
+ function addIngredient(e){
+        e.preventDefault()
+        
+        setIngredient('')
+        setAmount('')
+        setCalories(0)
+        
+        const ingredObj = {
+        name: ingredient,
+        amount: amount,
+        calories: calNum,
+        recipe_id: newId
+        }
+        setIngredientsArray([...ingredientsArray, ingredObj]) 
+        const ingredOpt={
+            headers :{'Content-Type': 'application/json'},
+            method : "POST",
+            body : JSON.stringify(ingredObj)
+        }
+
+        fetch('/ingredients',ingredOpt)
+        .then(resp=>resp.json())
+        .then(newIng=>console.log(newIng))       
+    }
+
+    
     
     
     
    
-    function submitIngredients(){
-        ingredientsArray.forEach((obj)=>{
-            const ingredOpt={
-            headers :{'Content-Type': 'application/json'},
-            method : "POST",
-            body : JSON.stringify(obj)
-            }
-            fetch('/ingredients',ingredOpt)
-            .then(resp=>resp.json())
-            .then(newIng=>console.log(newIng))
-        })
-    }
+    // function submitIngredients(){
+    //     ingredientsArray.forEach((obj)=>{
+    //         const ingredOpt={
+    //         headers :{'Content-Type': 'application/json'},
+    //         method : "POST",
+    //         body : JSON.stringify(obj)
+    //         }
+    //         fetch('/ingredients',ingredOpt)
+    //         .then(resp=>resp.json())
+    //         .then(newIng=>console.log(newIng))
+    //     })
+    // }
 
-    useEffect(()=>{
-        submitIngredients()
-    },[newId])
+    // useEffect(()=>{
+    //     // submitIngredients()
+    // },[newId])
     
     return(
         <div>
@@ -113,7 +123,7 @@ function NewRecipeForm({isVisible, setIsVisible, setRecipes, recipes}){
                 <button type='submit' onClick={(e)=>handleSubmit(e)}>Add Recipe</button>
             </form>     
             <button onClick={(e)=> showForm(e)}>Hide Recipe Form</button> 
-            <div>
+            <div style={{backgroundColor: 'orange', width: "50%", border:"3px solid gray"}} >
                 <h2>Directions Preview</h2>
                 {directionsArray.map(dir=><li>{dir}</li>)}
                 <h2>Ingredients Preview</h2>
@@ -122,5 +132,5 @@ function NewRecipeForm({isVisible, setIsVisible, setRecipes, recipes}){
         </div>
     )
 }
-
+// className='review'
 export default NewRecipeForm

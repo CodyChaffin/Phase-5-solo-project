@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import RecipeDetails from "./RecipeDetails"
+import ProfileCardDetails from "./ProfileCardDetails"
 import ReactCardFLip from 'react-card-flip'
 
 function ProfileRecipes({rec, currentUser, handleRemove}){
@@ -62,16 +62,16 @@ function ProfileRecipes({rec, currentUser, handleRemove}){
     },[favorite, unFavorite])
     return(
         <ReactCardFLip isFlipped={details} flipDirection="horizontal">
-            <div>
+            <div className="p-card">
                 <h1>{rec.name}</h1>
                 <button onClick={()=> setDetails(!details)}>Details</button>
-                <img alt={rec.name} style={{width : '250px'}}src= {rec.image_url}/>
-                <button  id={rec.id} onClick={(e)=>addRemoveFav(e.target.id)}>{favorites ? "⭐" : "☆"}</button>
+                <img alt={rec.name} style={{width:'200px'}} src= {rec.image_url}/>
+                <button  id={rec.id} onClick={(e)=>addRemoveFav(e.target.id)}>{favorites ? <div style={{width:"25px", height:"25px"}}>⭐</div> : <div style={{width:"25px", height:"25px"}}>☆</div>}</button>
             </div>
 
 
-            <div>
-                <RecipeDetails rec={rec} setDetails={setDetails} details={details}/>
+            <div className='backProfileCard'>
+                <ProfileCardDetails rec={rec} setDetails={setDetails} details={details}/>
             </div>
         </ReactCardFLip>
     )

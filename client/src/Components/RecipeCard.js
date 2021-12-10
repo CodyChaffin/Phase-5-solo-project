@@ -70,17 +70,19 @@ function RecipeCard({rec, currentUser, handleRemove}){
     
     return(
         <ReactCardFLip isFlipped={details} flipDirection="horizontal">
-            <div style={{ width:'500px',height:"400px",  backgroundImage: `url("https://i.pinimg.com/originals/a0/29/62/a0296222f9635d2345c4dc00c7bebe99.jpg")`}}>
+            <div className="card" >
                 <h1 style={{textAlign:'center'}}>{rec.name}</h1>
-                <button onClick={()=> setDetails(!details)}>Details</button>
-                <img alt={rec.name} style={{width : '300px', height:'300px'}}src= {rec.image_url}/>
-                <button  id={rec.id} style={{float:"right", width:"40px", height:"40px"}} onClick={(e)=>addRemoveFav(rec.id)}>{favorites ? <div style={{width:"25px", height:"25px"}}>⭐</div> : <div style={{width:"25px", height:"25px"}}>☆</div>}</button>
-                </div>
+                <button  id={rec.id} className='favorites' onClick={(e)=>addRemoveFav(rec.id)}>{favorites ? <div style={{width:"25px", height:"25px"}}>⭐</div> : <div style={{width:"25px", height:"25px"}}>☆</div>}</button>
+                <img alt={rec.name} style={{height : '300px', height:'300px'}}src= {rec.image_url}/>
+                <div className='turn'></div>
+                <button className='details' onClick={()=> setDetails(!details)}>{details ? null:"Turn Me"}</button>
+            </div>
 
 
-        <div>
+            <div className="backCard" style={{height: '405px'}}>
         <RecipeDetails rec={rec} setDetails={setDetails} details={details}/>
-        </div>
+        
+            </div>
         </ReactCardFLip>
     )
 }

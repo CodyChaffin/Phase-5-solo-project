@@ -1,20 +1,42 @@
 
 body {
     padding: 0%;
-    background-color: #FFFDD0
+    /* background-color: #FFFDD0 */
+    background-image: url(https://storge.pic2.me/cm/2048x1080/890/54da55ed5217c.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+.headerfiller{
+    background-color: turquoise;
+    height: 80px;
+   margin-top: -10px;
+   margin-left: -15px;
+   margin-right: -15px;
+}
+.header{
+   text-align:center;
+   text-shadow:2px 2px rgb(191, 204, 74) ;
+   position: absolute;
+   top: 10px;
+   width: 1950px;
+   
+   
 }
 
-
-.App{
-    background-color: #FFFDD0;
-    
+.island{
+    position: absolute;
+    top: 0px;
+    right: 750px;
+    height: 100px;
 }
 
 .Drawer{
     width: 25%;
 }
 
-.card{
+
+.backCard{
     background-image: url("https://i.pinimg.com/originals/a0/29/62/a0296222f9635d2345c4dc00c7bebe99.jpg");
 }
 
@@ -27,11 +49,159 @@ body {
   list-style: none;
   padding: 12px;
   justify-content: space-evenly;
+  background-color: turquoise;
+  margin-left: -8px;
+  margin-right: -10px;
   
 }
 .navBar button{
+    border-radius: 40%;
     text-align: center;
     list-style: none;
     margin-right: 200px;
+    border:none;
+    background-color: rgb(89, 96, 199);
+    color: rgb(191, 204, 74);
+    height: 25px;
+}
+
+.card{
+    background-image: url("https://i.pinimg.com/originals/a0/29/62/a0296222f9635d2345c4dc00c7bebe99.jpg");
+    height: 400px;
+    width:502px;
+    height: 378px;
     
 }
+
+.card image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.favorites{
+    float:"right";
+    width:40px;
+    height:40px;
+    position :absolute; 
+    top:0; 
+    right: 76px;
+    background: transparent;
+    border: none;
+    font-size: 25px;
+}
+
+.details{
+    position: absolute;
+    top: 344px;
+    right: 69px;
+    height: 30px;
+    background-color: transparent;
+    border: transparent;
+    transform: rotate(-45deg);
+    text-shadow: none;
+    
+}
+
+.turn{
+    width: 0px;
+    height: 0px;
+    border-bottom:30px white solid;
+    position: absolute;
+    top: 319px;
+    right: 74px;
+    border-top:30px transparent solid;
+    border-left:30px transparent solid;
+    border-right:30px white solid;
+    text-shadow: none;
+}
+
+.directions{ 
+    font-weight: 200;
+    top: 170px;
+}
+ 
+.instruction{
+    margin: 16px;
+}
+
+.instruct{
+    margin: 7px;
+    color: rgb(143, 9, 148);
+}
+
+.profileButton{
+    border:gray solid 2px;
+    width: 100px;
+    margin: 30px;
+    text-align: center;
+    background-color: rgb(224, 177, 75);
+    text-shadow:1px 1px rgb(120, 154, 216);
+    border-radius: 50%;
+    
+}
+
+.profileButton:hover{
+    transform: scale(1.03);
+    background-color: rgb(206, 119, 37);
+    text-shadow: 1px 1px khaki;
+}
+
+.p-card{
+    background-image: url("https://i.pinimg.com/originals/a0/29/62/a0296222f9635d2345c4dc00c7bebe99.jpg");
+    height: 400px;
+    width:502px;
+    height: 375px;
+}
+
+.p-card image{
+    display: block;
+    /* margin-left: auto; */
+    /* margin-right: auto;  */
+    
+    
+} 
+
+.logIn{
+    color: rgb(196, 110, 29);
+    text-shadow: 1px 1px rgb(230, 216, 90);
+}
+
+.backProfileCard{
+    background-image: url("https://i.pinimg.com/originals/a0/29/62/a0296222f9635d2345c4dc00c7bebe99.jpg");
+    
+}
+
+.review{
+    background-image: url("https://i.pinimg.com/originals/a0/29/62/a0296222f9635d2345c4dc00c7bebe99.jpg");
+}
+
+.profile-directions{
+    font-weight: 200;
+    top: 170px; 
+}
+
+/* .turnback{
+    width: 0px;
+    height: 0px;
+    border-bottom:30px white solid;
+    position: absolute;
+    top: 343px;
+    right: 0px;
+    border-top:30px transparent solid;
+    border-left:30px transparent solid;
+    border-right:30px white solid;
+    text-shadow: none;
+} */
+
+/* .backCard button{
+    position: absolute;
+    top: 365px;
+    right: 0px;
+   height: 30px;
+    background-color: transparent;
+    border: transparent;
+    transform: rotate(-45deg);
+    text-shadow: none; 
+} */

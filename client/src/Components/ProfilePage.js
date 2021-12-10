@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router"
 import NewRecipeForm from "./NewRecipeForm";
 import ProfileRecipes from "./ProfileRecipes";
+import { Grid } from "@material-ui/core";
 
 
 function ProfilePage({currentUser, setCurrentUser}){
@@ -46,7 +47,9 @@ function ProfilePage({currentUser, setCurrentUser}){
         {isVisible ? <NewRecipeForm setRecipes={setRecipes} recipes={recipes} isVisible={isVisible} setIsVisible={setIsVisible}/> : <button onClick={()=>setIsVisible(!isVisible)}>Add A Recipe</button>}
         
         <div>
-            {currentUser.recipes.map(recipe=><ProfileRecipes key={recipe.id} rec={recipe} currentUser={currentUser} setRecipes={setRecipes} handleRemove={handleRemove} favorites={favorites}/>)}
+          <Grid container spacing={10}>
+            {currentUser.recipes.map(recipe=><Grid item lg={4}><ProfileRecipes key={recipe.id} rec={recipe} currentUser={currentUser} setRecipes={setRecipes} handleRemove={handleRemove} favorites={favorites}/></Grid>)}
+          </Grid>
         </div>
         </>
     )
